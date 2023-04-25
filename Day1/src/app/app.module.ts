@@ -8,6 +8,9 @@ import { FooterComponent } from './footer/footer.component';
 import { ProductsComponent } from './products/products.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { DiscountOffers } from './Shared_Classes_&_types/DiscountOffers'
+import { ICategory } from './Shared_Classes_&_types/ICategory';
+import { IProduct } from './Shared_Classes_&_types/IProduct';
 @NgModule({
   declarations: [
     AppComponent,
