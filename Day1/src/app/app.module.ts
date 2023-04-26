@@ -11,6 +11,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DiscountOffers } from './Shared_Classes_&_types/DiscountOffers'
 import { ICategory } from './Shared_Classes_&_types/ICategory';
 import { IProduct } from './Shared_Classes_&_types/IProduct';
+import { FormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +20,7 @@ import { IProduct } from './Shared_Classes_&_types/IProduct';
     FooterComponent,
     ProductsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule],
+  imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule],
   providers: [],
   bootstrap: [
     AppComponent,
