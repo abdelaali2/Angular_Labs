@@ -12,6 +12,7 @@ import { DiscountOffers } from './Shared_Classes_&_types/DiscountOffers'
 import { ICategory } from './Shared_Classes_&_types/ICategory';
 import { IProduct } from './Shared_Classes_&_types/IProduct';
 import { FormsModule } from '@angular/forms';
+import { FilterFromArrayPipe } from './Pipes/filter-from-array.pipe';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     FooterComponent,
     ProductsComponent,
+    FilterFromArrayPipe,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, FormsModule],
   providers: [],
