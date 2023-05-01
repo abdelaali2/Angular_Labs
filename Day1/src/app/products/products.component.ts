@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DiscountOffers } from '../Shared_Classes_&_types/DiscountOffers';
 import { ICategory } from '../Shared_Classes_&_types/ICategory';
 import { IProduct } from '../Shared_Classes_&_types/IProduct';
+import { ProductServiceService } from '../services/product-service.service';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -11,29 +12,9 @@ export class ProductsComponent implements OnInit {
   discount: DiscountOffers = DiscountOffers.TenPercent;
   storeName: string = 'My Store';
   storeLogo: string = '../assets/logo.png';
-  productList: IProduct[] = [
-    {
-      id: 1,
-      name: 'Product 1',
-      quantity: 10,
-      price: 20,
-      img: '../assets/product1.jpg',
-    },
-    {
-      id: 2,
-      name: 'Product 2',
-      quantity: 5,
-      price: 30,
-      img: '../assets/product2.jpg',
-    },
-    {
-      id: 3,
-      name: 'Product 3',
-      quantity: 2,
-      price: 50,
-      img: '../assets/product3.jpg',
-    },
-  ];
+
+  productList: any[] = [];
+
   categoryList: ICategory[] = [
     { id: 1, name: 'Category 1' },
     { id: 2, name: 'Category 2' },
@@ -42,9 +23,11 @@ export class ProductsComponent implements OnInit {
   clientName: string = '';
   isPurchased: boolean = false;
 
-  constructor() {}
+  constructor(private productService: ProductServiceService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productList = this.productService.getAllProducts();
+  }
 
   onBuy() {
     this.isPurchased = true;
@@ -52,5 +35,10 @@ export class ProductsComponent implements OnInit {
 
   return() {
     this.isPurchased = false;
+  }
+
+  renderValues() {
+    // TODO: call the Service named ProductService
+    this.productService.getAllProducts();
   }
 }
