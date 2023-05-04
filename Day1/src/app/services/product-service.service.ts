@@ -60,14 +60,14 @@ export class ProductServiceService {
     });
   }
 
-  getDiscountedProducts(products: IProduct[]): IProduct[] {
-    return products.filter(
+  getDiscountedProducts(): IProduct[] {
+    return this.productList.filter(
       (product) => product.discount !== DiscountOffers.NoDiscount
     );
   }
 
-  getNonDiscountedProducts(products: IProduct[]): IProduct[] {
-    return products.filter(
+  getNonDiscountedProducts(): IProduct[] {
+    return this.productList.filter(
       (product) => product.discount === DiscountOffers.NoDiscount
     );
   }

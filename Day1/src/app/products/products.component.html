@@ -18,12 +18,14 @@
     <h2 class="flex-grow-1" *ngIf="clientName">"Hello {{ clientName }}"</h2>
 </div>
 
-<!-- <div *ngIf="viewAll; then generalTable; else shortTable"></div> -->
+<div *ngIf="viewAll; then generalTable; else shortTable"></div>
 
-<ng-template #shortTable><router-outlet></router-outlet></ng-template>
+<ng-template #shortTable>
+    <router-outlet></router-outlet>
+</ng-template>
 
 <ng-template #generalTable>
-    <!-- <div *ngIf="isPurchased; then thankYou; else tableBlock"></div> -->
+    <div *ngIf="isPurchased; then thankYou; else tableBlock"></div>
     <ng-template #tableBlock>
         <div class="d-flex justify-content-center align-items-center">
             <select class="col-md-2 text-center">

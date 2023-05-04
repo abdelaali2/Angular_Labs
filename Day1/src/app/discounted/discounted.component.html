@@ -1,1 +1,23 @@
-<p>discounted works!</p>
+<div class="d-flex justify-content-center m-4">
+    <table class="table mt-2">
+        <thead>
+            <tr>
+                <th class="text-center">ID</th>
+                <th class="text-center">Name</th>
+                <th class="text-center">Quantity</th>
+                <th class="text-center">Price</th>
+                <th class="text-center">Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of productList; let i=index" [ngClass]="{'bg-dark text-white': i%2===0}">
+                <td class="text-center align-middle">{{ product.id }}</td>
+                <td class="text-center align-middle">{{ product.name }}</td>
+                <td class="text-center align-middle">{{ product.quantity }}</td>
+                <td class="text-center align-middle">{{ product.price|currency
+                    }}</td>
+                <td class="text-center align-middle"><img [src]="product.img" alt="{{ product.name }}" height="80"></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
