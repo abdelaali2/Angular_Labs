@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DiscountOffers } from '../Shared_Classes_&_types/DiscountOffers';
-import { ICategory } from '../Shared_Classes_&_types/ICategory';
-import { IProduct } from '../Shared_Classes_&_types/IProduct';
 import { ProductServiceService } from '../services/product-service.service';
+import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-products',
   templateUrl: './products.component.html',
@@ -14,19 +13,23 @@ export class ProductsComponent implements OnInit {
   storeLogo: string = '../assets/logo.png';
 
   productList: any[] = [];
+  categoryList: any[] = [];
 
-  categoryList: ICategory[] = [
-    { id: 1, name: 'Category 1' },
-    { id: 2, name: 'Category 2' },
-    { id: 3, name: 'Category 3' },
-  ];
   clientName: string = '';
   isPurchased: boolean = false;
+  // viewDiscounted: boolean = false;
+  // viewNonDiscounted: boolean = false;
+  viewAll: boolean = true;
 
-  constructor(private productService: ProductServiceService) {}
+  constructor(
+    private productService: ProductServiceService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.productList = this.productService.getAllProducts();
+    this.categoryList = this.productService.getAllCategories();
   }
 
   onBuy() {
@@ -40,5 +43,19 @@ export class ProductsComponent implements OnInit {
   renderValues() {
     // TODO: call the Service named ProductService
     this.productService.getAllProducts();
+  }
+
+  displayDiscounted() {
+    this.router.navigate(['discounted'], {
+      relativeTo: this.activatedRoute,
+    });
+    this.viewAll = !this.viewAll;
+  }
+
+  displayNonDiscounted() {
+    this.router.navigate(['nondiscounted'], {
+      relativeTo: this.activatedRoute,
+    });
+    this.viewAll = !this.viewAll;
   }
 }

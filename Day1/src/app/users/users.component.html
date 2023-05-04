@@ -1,0 +1,31 @@
+<h2 class="mt-4">Our Users</h2>
+
+<div class="row d-flex justify-content-center">
+    <div *ngFor="let user of users" class="card mb-3 col-6 m-2 shadow" style="max-width: 40em;">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src="https://img.freepik.com/premium-vector/businessman-avatar-cartoon-character-profile_18591-50581.jpg"
+                    class="img-fluid rounded-start">
+            </div>
+            <div class="col-md-8 bg-custom">
+                <div class="card-body">
+                    <h4 class="card-title">{{user.name}}</h4>
+                    <p class="card-text"><small class="text-black">{{user.username}}</small></p>
+                    <h5 class="card-text">
+                        http://{{user.website}}
+                        <br>
+                        {{user.email}}
+                    </h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="error" class="alert alert-danger d-flex align-items-center" role="alert">
+    <img src="https://cdn0.iconfinder.com/data/icons/shift-free/32/Error-512.png" width="70">
+    <div class="ms-2 fs-1">
+        <h2>
+            {{error}}
+        </h2>
+    </div>
+</div>

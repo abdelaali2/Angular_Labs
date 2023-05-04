@@ -1,0 +1,27 @@
+.bg-custom {
+    background-color: #50aadc;
+    color: #fff;
+}
+
+h2 {
+    text-align: center;
+    font-size: 3em;
+    font-weight: 300;
+    color: transparent;
+    text-shadow: -1px 1px 2px #50aadc, 1px 1px 2px #50aadc, 1px -1px 0 #50aadc, -1px -1px 0 #50aadc;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: grid;
+    grid-template-columns: 1fr max-content 1fr;
+    grid-template-rows: 27px 0;
+    grid-gap: 20px;
+    align-items: center;
+}
+h2::before,
+h2::after {
+    content: " ";
+    display: block;
+    border-bottom: 3px solid #50aadc;
+    border-top: 3px solid #50aadc;
+    height: 15px;
+}

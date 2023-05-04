@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { IProduct } from '../Shared_Classes_&_types/IProduct';
+import { ICategory } from '../Shared_Classes_&_types/ICategory';
+import { DiscountOffers } from '../Shared_Classes_&_types/DiscountOffers';
 
 @Injectable({
   providedIn: 'root',
@@ -14,6 +16,7 @@ export class ProductServiceService {
       quantity: 10,
       price: 20,
       img: '../assets/product1.jpg',
+      discount: DiscountOffers.NoDiscount,
     },
     {
       id: 2,
@@ -21,6 +24,7 @@ export class ProductServiceService {
       quantity: 5,
       price: 30,
       img: '../assets/product2.jpg',
+      discount: DiscountOffers.FifteenPercent,
     },
     {
       id: 3,
@@ -28,7 +32,14 @@ export class ProductServiceService {
       quantity: 2,
       price: 50,
       img: '../assets/product3.jpg',
+      discount: DiscountOffers.TenPercent,
     },
+  ];
+
+  categoryList: ICategory[] = [
+    { id: 1, name: 'Category 1' },
+    { id: 2, name: 'Category 2' },
+    { id: 3, name: 'Category 3' },
   ];
 
   getAllProducts(): any[] {
@@ -47,5 +58,21 @@ export class ProductServiceService {
       }
       return matchedProduct;
     });
+  }
+
+  getDiscountedProducts(products: IProduct[]): IProduct[] {
+    return products.filter(
+      (product) => product.discount !== DiscountOffers.NoDiscount
+    );
+  }
+
+  getNonDiscountedProducts(products: IProduct[]): IProduct[] {
+    return products.filter(
+      (product) => product.discount === DiscountOffers.NoDiscount
+    );
+  }
+
+  getAllCategories(): any[] {
+    return this.categoryList;
   }
 }

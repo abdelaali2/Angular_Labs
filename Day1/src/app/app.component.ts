@@ -1,6 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { ProductsComponent } from './products/products.component';
-import { ProductServiceService } from './services/product-service.service';
+import { Component, /*ViewChild*/ } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -10,12 +8,12 @@ import { ProductServiceService } from './services/product-service.service';
 export class AppComponent {
   title = 'E-Commerce Application';
 
-  @ViewChild(ProductsComponent) product: ProductsComponent;
-  showProducts: boolean = false;
+  // @ViewChild(ProductsComponent) product: ProductsComponent;
+  // showProducts: boolean = false;
 
-  invokeChild() {
-    this.showProducts = true;
+  // invokeChild() {
+  //   this.showProducts = true;
 
-    this.product.renderValues();
-  }
+  //   this.product.renderValues();
+  // }
 }
